@@ -1,0 +1,1786 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>프로디자인</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/KakaoTalk_20240225_111242619.png" rel="shortcut icon" type="image/x-icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="fontcss.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/efdb09ae7c.js" crossorigin="anonymous"></script>
+    <style>
+body {
+  font-family: 'SUIT', sans-serif;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.container1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.image-container {
+display: none;
+flex-wrap: nowrap;
+}
+.image-container.active {
+display: block;
+}
+.image-container img {
+  max-width: 100%; /* 이미지가 컨테이너를 벗어나지 않도록 최대 너비 설정 */
+  margin-right: 1px; /* 이미지 사이 간격 설정 */
+  margin-bottom: 2px;
+  margin-top: 2px;
+}
+
+.button-container {
+  position:absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+button {
+  padding: 8px 25px;
+  margin: 0 5px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+  outline: none;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+/* 추가된 스타일 */
+.before, .after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.before {
+  z-index: 5;
+}
+
+.after {
+  z-index: 1;
+  opacity: 0;
+}
+
+.button-container button {
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+
+main {
+    padding: 2rem;
+}
+
+.left, .right {
+    flex: 1;
+    min-width: 250px; /* 최소 너비 설정 */
+    padding: 10px 0;
+}
+
+.right {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1.5px;
+}
+
+.mainimage{
+  width: calc(100% - 3px); /* 이미지 크기와 간격 조정 */
+  height: calc(202% * 17 / 30); /* 30:17 비율 계산 */
+}
+.subimage {
+  width: calc(49.5% - 1.5px); /* 이미지 크기와 간격 조정 */
+  margin-bottom: 1px; /* 아래쪽 간격 추가 */
+  height: calc(100% * 17 / 30); /* 30:17 비율 계산 */
+}
+
+section {
+    margin-bottom: 2rem;
+    padding: 0.5rem;
+}
+.project-container {
+    display:flex ;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: left;
+}
+
+.project {
+    flex: 0 1 calc(25% - 20px);
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.description {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 5px 0;
+    flex-wrap: wrap;
+  }
+
+  .brief-description {
+    flex: 1;
+    margin-right: 50px;
+    border-top: 2px solid black; /* 상단 실선 추가 */
+    border-bottom: 2px solid black; /* 하단 실선 추가 */
+    margin-top: 0px; /* 실선과 텍스트 사이의 간격 조정 */
+    margin-bottom: 0px; /* 실선과 텍스트 사이의 간격 조정 */
+    margin-left:-50px;
+  }
+  .left-text {
+    flex: 1;
+    text-align: left;
+  }
+
+  .right-text {
+    flex: 1;
+    text-align: center;
+  }
+
+  .detailed-description {
+    flex: 1;
+    margin-left: 10px;
+  }
+
+  /* 모달 스타일 */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.9);
+}
+
+/* 모달 콘텐츠 스타일 */
+.modal-content {
+    margin: 150px auto;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    text-align: center;
+    background-color: rgba(0,0,0,0.11);
+}
+
+.num {
+    color: white;
+    font-size: 16px;
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.caption {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+}
+
+/* 이미지 슬라이더 */
+.mySlides {
+  display: none;
+  position: relative;
+}
+
+.mySlides img {
+    width: 966px; 
+    height: 544px;
+    object-fit: contain;
+}
+
+.mySlides2 {
+  display: none;
+  position: relative;
+}
+
+.mySlides2 img {
+    width: 966px; 
+    height: 544px;
+    object-fit: contain;
+}
+
+.mySlides3 {
+  display: none;
+  position: relative;
+}
+
+.mySlides3 img {
+    width: 966px; 
+    height: 544px;
+    object-fit: contain;
+}
+
+.mySlides4 {
+  display: none;
+  position: relative;
+}
+
+.mySlides4 img {
+    width: 966px; 
+    height: 544px;
+    object-fit: contain;
+}
+
+.mySlides5 {
+  display: none;
+  position: relative;
+}
+
+.mySlides5 img {
+    width: 966px; 
+    height: 544px;
+    object-fit: contain;
+}
+
+.mySlides6 {
+  display: none;
+  position: relative;
+}
+
+.mySlides6 img {
+    width: 966px; 
+    height: 544px;
+    object-fit: contain;
+}
+
+.mySlides7 {
+  display: none;
+  position: relative;
+}
+
+.mySlides7 img {
+    width: 966px; 
+    height: 544px;
+    object-fit: contain;
+}
+
+.mySlides8 {
+  display: none;
+  position: relative;
+}
+
+.mySlides8 img {
+    width: 966px; 
+    height: 544px;
+    object-fit: contain;
+}
+
+/* 닫기, 이전, 다음 버튼 */
+.close, .prev, .next {
+    font-size: 54px;
+    font-weight: bold;
+    cursor: pointer;
+    position: fixed; /* position 값을 fixed로 변경하여 화면에 고정 */
+    top: 50%; /* 화면 세로 중앙에 위치 */
+    transform: translateY(-50%); /* 버튼을 세로 방향으로 -50% 이동하여 정확한 중앙 정렬 */
+    z-index: 9999; /* 다른 요소 위에 표시되도록 z-index 값 설정 */
+}
+
+.close {
+    right: 200px;
+    margin-top: -360px; /* 불필요한 margin-top 제거 */
+}
+
+.prev {
+    left: 50%; /* 화면 가로 중앙에 위치 */
+    transform: translateX(-180%); /* 버튼을 가로 방향으로 -50% 이동하여 정확한 중앙 정렬 */
+    margin-top: 250px;
+}
+
+.next {
+    right: 50%; /* 화면 가로 중앙에 위치 */
+    transform: translateX(180%); /* 버튼을 가로 방향으로 50% 이동하여 정확한 중앙 정렬 */
+    margin-top: 250px;
+}
+
+/* CSS */
+.prev2 {
+  color: grey; /* 초기 상태는 회색으로 설정 */
+  cursor: default; /* 이전 버튼 비활성화 */
+  left: 48%; /* 화면 가로 중앙에 위치 */
+  transform: translateX(-180%); /* 버튼을 가로 방향으로 -50% 이동하여 정확한 중앙 정렬 */
+  margin-top: 280px;
+  font-size: 54px;
+    font-weight: bold;
+    cursor: pointer;
+    position: fixed; /* position 값을 fixed로 변경하여 화면에 고정 */
+    top: 50%; /* 화면 세로 중앙에 위치 */
+    transform: translateY(-50%); /* 버튼을 세로 방향으로 -50% 이동하여 정확한 중앙 정렬 */
+    z-index: 9999; /* 다른 요소 위에 표시되도록 z-index 값 설정 */
+}
+
+.next2 {
+  color: white; /* 초기 상태는 하얀색으로 설정 */
+  cursor: pointer; /* 다음 버튼 활성화 */
+  right: 48%; /* 화면 가로 중앙에 위치 */
+  transform: translateX(180%); /* 버튼을 가로 방향으로 50% 이동하여 정확한 중앙 정렬 */
+  margin-top: 280px;
+  font-size: 54px;
+    font-weight: bold;
+    cursor: pointer;
+    position: fixed; /* position 값을 fixed로 변경하여 화면에 고정 */
+    top: 50%; /* 화면 세로 중앙에 위치 */
+    transform: translateY(-50%); /* 버튼을 세로 방향으로 -50% 이동하여 정확한 중앙 정렬 */
+    z-index: 9999; /* 다른 요소 위에 표시되도록 z-index 값 설정 */
+}
+
+.prev3 {
+  color: grey; /* 초기 상태는 회색으로 설정 */
+  cursor: default; /* 이전 버튼 비활성화 */
+  left: 48%; /* 화면 가로 중앙에 위치 */
+  transform: translateX(-180%); /* 버튼을 가로 방향으로 -50% 이동하여 정확한 중앙 정렬 */
+  margin-top: 280px;
+  font-size: 54px;
+    font-weight: bold;
+    cursor: pointer;
+    position: fixed; /* position 값을 fixed로 변경하여 화면에 고정 */
+    top: 50%; /* 화면 세로 중앙에 위치 */
+    transform: translateY(-50%); /* 버튼을 세로 방향으로 -50% 이동하여 정확한 중앙 정렬 */
+    z-index: 9999; /* 다른 요소 위에 표시되도록 z-index 값 설정 */
+}
+
+.next3 {
+  color: white; /* 초기 상태는 하얀색으로 설정 */
+  cursor: pointer; /* 다음 버튼 활성화 */
+  right: 48%; /* 화면 가로 중앙에 위치 */
+  transform: translateX(180%); /* 버튼을 가로 방향으로 50% 이동하여 정확한 중앙 정렬 */
+  margin-top: 280px;
+  font-size: 54px;
+    font-weight: bold;
+    cursor: pointer;
+    position: fixed; /* position 값을 fixed로 변경하여 화면에 고정 */
+    top: 50%; /* 화면 세로 중앙에 위치 */
+    transform: translateY(-50%); /* 버튼을 세로 방향으로 -50% 이동하여 정확한 중앙 정렬 */
+    z-index: 9999; /* 다른 요소 위에 표시되도록 z-index 값 설정 */
+}
+
+.prev4 {
+  color: grey; /* 초기 상태는 회색으로 설정 */
+  cursor: default; /* 이전 버튼 비활성화 */
+  left: 48%; /* 화면 가로 중앙에 위치 */
+  transform: translateX(-180%); /* 버튼을 가로 방향으로 -50% 이동하여 정확한 중앙 정렬 */
+  margin-top: 280px;
+  font-size: 54px;
+    font-weight: bold;
+    cursor: pointer;
+    position: fixed; /* position 값을 fixed로 변경하여 화면에 고정 */
+    top: 50%; /* 화면 세로 중앙에 위치 */
+    transform: translateY(-50%); /* 버튼을 세로 방향으로 -50% 이동하여 정확한 중앙 정렬 */
+    z-index: 9999; /* 다른 요소 위에 표시되도록 z-index 값 설정 */
+}
+
+.next4 {
+  color: white; /* 초기 상태는 하얀색으로 설정 */
+  cursor: pointer; /* 다음 버튼 활성화 */
+  right: 48%; /* 화면 가로 중앙에 위치 */
+  transform: translateX(180%); /* 버튼을 가로 방향으로 50% 이동하여 정확한 중앙 정렬 */
+  margin-top: 280px;
+  font-size: 54px;
+    font-weight: bold;
+    cursor: pointer;
+    position: fixed; /* position 값을 fixed로 변경하여 화면에 고정 */
+    top: 50%; /* 화면 세로 중앙에 위치 */
+    transform: translateY(-50%); /* 버튼을 세로 방향으로 -50% 이동하여 정확한 중앙 정렬 */
+    z-index: 9999; /* 다른 요소 위에 표시되도록 z-index 값 설정 */
+}
+
+.prev5 {
+  color: grey; /* 초기 상태는 회색으로 설정 */
+  cursor: default; /* 이전 버튼 비활성화 */
+  left: 48%; /* 화면 가로 중앙에 위치 */
+  transform: translateX(-180%); /* 버튼을 가로 방향으로 -50% 이동하여 정확한 중앙 정렬 */
+  margin-top: 280px;
+  font-size: 54px;
+    font-weight: bold;
+    cursor: pointer;
+    position: fixed; /* position 값을 fixed로 변경하여 화면에 고정 */
+    top: 50%; /* 화면 세로 중앙에 위치 */
+    transform: translateY(-50%); /* 버튼을 세로 방향으로 -50% 이동하여 정확한 중앙 정렬 */
+    z-index: 9999; /* 다른 요소 위에 표시되도록 z-index 값 설정 */
+}
+
+.next5 {
+  color: white; /* 초기 상태는 하얀색으로 설정 */
+  cursor: pointer; /* 다음 버튼 활성화 */
+  right: 48%; /* 화면 가로 중앙에 위치 */
+  transform: translateX(180%); /* 버튼을 가로 방향으로 50% 이동하여 정확한 중앙 정렬 */
+  margin-top: 280px;
+  font-size: 54px;
+    font-weight: bold;
+    cursor: pointer;
+    position: fixed; /* position 값을 fixed로 변경하여 화면에 고정 */
+    top: 50%; /* 화면 세로 중앙에 위치 */
+    transform: translateY(-50%); /* 버튼을 세로 방향으로 -50% 이동하여 정확한 중앙 정렬 */
+    z-index: 9999; /* 다른 요소 위에 표시되도록 z-index 값 설정 */
+}
+
+.prev6 {
+  color: grey; /* 초기 상태는 회색으로 설정 */
+  cursor: default; /* 이전 버튼 비활성화 */
+  left: 48%; /* 화면 가로 중앙에 위치 */
+  transform: translateX(-180%); /* 버튼을 가로 방향으로 -50% 이동하여 정확한 중앙 정렬 */
+  margin-top: 280px;
+  font-size: 54px;
+    font-weight: bold;
+    cursor: pointer;
+    position: fixed; /* position 값을 fixed로 변경하여 화면에 고정 */
+    top: 50%; /* 화면 세로 중앙에 위치 */
+    transform: translateY(-50%); /* 버튼을 세로 방향으로 -50% 이동하여 정확한 중앙 정렬 */
+    z-index: 9999; /* 다른 요소 위에 표시되도록 z-index 값 설정 */
+}
+
+.next6 {
+  color: white; /* 초기 상태는 하얀색으로 설정 */
+  cursor: pointer; /* 다음 버튼 활성화 */
+  right: 48%; /* 화면 가로 중앙에 위치 */
+  transform: translateX(180%); /* 버튼을 가로 방향으로 50% 이동하여 정확한 중앙 정렬 */
+  margin-top: 280px;
+  font-size: 54px;
+    font-weight: bold;
+    cursor: pointer;
+    position: fixed; /* position 값을 fixed로 변경하여 화면에 고정 */
+    top: 50%; /* 화면 세로 중앙에 위치 */
+    transform: translateY(-50%); /* 버튼을 세로 방향으로 -50% 이동하여 정확한 중앙 정렬 */
+    z-index: 9999; /* 다른 요소 위에 표시되도록 z-index 값 설정 */
+}
+
+.prev7 {
+  color: grey; /* 초기 상태는 회색으로 설정 */
+  cursor: default; /* 이전 버튼 비활성화 */
+  left: 48%; /* 화면 가로 중앙에 위치 */
+  transform: translateX(-180%); /* 버튼을 가로 방향으로 -50% 이동하여 정확한 중앙 정렬 */
+  margin-top: 280px;
+  font-size: 54px;
+    font-weight: bold;
+    cursor: pointer;
+    position: fixed; /* position 값을 fixed로 변경하여 화면에 고정 */
+    top: 50%; /* 화면 세로 중앙에 위치 */
+    transform: translateY(-50%); /* 버튼을 세로 방향으로 -50% 이동하여 정확한 중앙 정렬 */
+    z-index: 9999; /* 다른 요소 위에 표시되도록 z-index 값 설정 */
+}
+
+.next7 {
+  color: white; /* 초기 상태는 하얀색으로 설정 */
+  cursor: pointer; /* 다음 버튼 활성화 */
+  right: 48%; /* 화면 가로 중앙에 위치 */
+  transform: translateX(180%); /* 버튼을 가로 방향으로 50% 이동하여 정확한 중앙 정렬 */
+  margin-top: 280px;
+  font-size: 54px;
+    font-weight: bold;
+    cursor: pointer;
+    position: fixed; /* position 값을 fixed로 변경하여 화면에 고정 */
+    top: 50%; /* 화면 세로 중앙에 위치 */
+    transform: translateY(-50%); /* 버튼을 세로 방향으로 -50% 이동하여 정확한 중앙 정렬 */
+    z-index: 9999; /* 다른 요소 위에 표시되도록 z-index 값 설정 */
+}
+
+.prev8 {
+  color: grey; /* 초기 상태는 회색으로 설정 */
+  cursor: default; /* 이전 버튼 비활성화 */
+  left: 48%; /* 화면 가로 중앙에 위치 */
+  transform: translateX(-180%); /* 버튼을 가로 방향으로 -50% 이동하여 정확한 중앙 정렬 */
+  margin-top: 280px;
+  font-size: 54px;
+    font-weight: bold;
+    cursor: pointer;
+    position: fixed; /* position 값을 fixed로 변경하여 화면에 고정 */
+    top: 50%; /* 화면 세로 중앙에 위치 */
+    transform: translateY(-50%); /* 버튼을 세로 방향으로 -50% 이동하여 정확한 중앙 정렬 */
+    z-index: 9999; /* 다른 요소 위에 표시되도록 z-index 값 설정 */
+}
+
+.next8 {
+  color: white; /* 초기 상태는 하얀색으로 설정 */
+  cursor: pointer; /* 다음 버튼 활성화 */
+  right: 48%; /* 화면 가로 중앙에 위치 */
+  transform: translateX(180%); /* 버튼을 가로 방향으로 50% 이동하여 정확한 중앙 정렬 */
+  margin-top: 280px;
+  font-size: 54px;
+    font-weight: bold;
+    cursor: pointer;
+    position: fixed; /* position 값을 fixed로 변경하여 화면에 고정 */
+    top: 50%; /* 화면 세로 중앙에 위치 */
+    transform: translateY(-50%); /* 버튼을 세로 방향으로 -50% 이동하여 정확한 중앙 정렬 */
+    z-index: 9999; /* 다른 요소 위에 표시되도록 z-index 값 설정 */
+}
+
+.booking-box {
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #000;
+    box-sizing: border-box;
+}
+
+.mobilebtn {
+  display: none;
+}
+
+.mobile {
+  display: none;
+}
+.desktopbtn {
+  display: block;
+  transform: translateX(51%);
+  margin-top: 5px;
+}
+.desktop {
+  display: block;
+}
+.triple img {
+    width: 600px;
+    height: 500px;
+}
+@media all and (min-width:1247px) and (max-width:1849px) {
+/* 노트북 */
+.triple img{
+    width: 480px;
+    height: 360px;
+}
+}
+@media only screen and (max-width:780px) {
+  .mainimage{
+  width: 300px; 
+  height: 150px;
+}
+
+.mySlides img {
+  margin: auto; /* 세로 방향 중앙 정렬 */
+  display: block;
+  width: 350px; /* 이미지 너비 고정 */
+  height: 293px; /* 이미지 높이 고정 */
+  object-fit: contain; /* 가로 세로 비율 유지 */
+  margin-left: -32px; /* 이미지를 왼쪽으로 50px 이동하여 중앙에 정렬 */
+  margin-top: -90px;
+}
+.mySlides2 img {
+  margin: auto; /* 세로 방향 중앙 정렬 */
+  display: block;
+  width: 350px; /* 이미지 너비 고정 */
+  height: 293px; /* 이미지 높이 고정 */
+  object-fit: contain; /* 가로 세로 비율 유지 */
+  margin-left: -32px; /* 이미지를 왼쪽으로 50px 이동하여 중앙에 정렬 */
+  margin-top: -90px;
+}
+.mySlides3 img {
+  margin: auto; /* 세로 방향 중앙 정렬 */
+  display: block;
+  width: 225px; /* 이미지 너비 고정 */
+  height: 165px; /* 이미지 높이 고정 */
+  object-fit: contain; /* 가로 세로 비율 유지 */
+  margin-left: -15px; /* 이미지를 왼쪽으로 50px 이동하여 중앙에 정렬 */
+  margin-top: 0px;
+}
+.mySlides4 img {
+  margin: auto; /* 세로 방향 중앙 정렬 */
+  display: block;
+  width: 225px; /* 이미지 너비 고정 */
+  height: 165px; /* 이미지 높이 고정 */
+  object-fit: contain; /* 가로 세로 비율 유지 */
+  margin-left: -15px; /* 이미지를 왼쪽으로 50px 이동하여 중앙에 정렬 */
+  margin-top: 0px;
+}
+.mySlides5 img {
+  margin: auto; /* 세로 방향 중앙 정렬 */
+  display: block;
+  width: 225px; /* 이미지 너비 고정 */
+  height: 165px; /* 이미지 높이 고정 */
+  object-fit: contain; /* 가로 세로 비율 유지 */
+  margin-left: -15px; /* 이미지를 왼쪽으로 50px 이동하여 중앙에 정렬 */
+  margin-top: 0px;
+}
+.mySlides6 img {
+  margin: auto; /* 세로 방향 중앙 정렬 */
+  display: block;
+  width: 225px; /* 이미지 너비 고정 */
+  height: 165px; /* 이미지 높이 고정 */
+  object-fit: contain; /* 가로 세로 비율 유지 */
+  margin-left: -15px; /* 이미지를 왼쪽으로 50px 이동하여 중앙에 정렬 */
+  margin-top: 0px;
+}
+.mySlides7 img {
+  margin: auto; /* 세로 방향 중앙 정렬 */
+  display: block;
+  width: 225px; /* 이미지 너비 고정 */
+  height: 165px; /* 이미지 높이 고정 */
+  object-fit: contain; /* 가로 세로 비율 유지 */
+  margin-left: -15px; /* 이미지를 왼쪽으로 50px 이동하여 중앙에 정렬 */
+  margin-top: 0px;
+}
+.mySlides8 img {
+  margin: auto; /* 세로 방향 중앙 정렬 */
+  display: block;
+  width: 225px; /* 이미지 너비 고정 */
+  height: 165px; /* 이미지 높이 고정 */
+  object-fit: contain; /* 가로 세로 비율 유지 */
+  margin-left: -15px; /* 이미지를 왼쪽으로 50px 이동하여 중앙에 정렬 */
+  margin-top: 0px;
+}
+.modal {
+  display: none;
+  position: block;
+  z-index: 99;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.9);
+}
+.modal-content {
+  margin: 250px auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  position: relative; /* 추가 */
+  text-align: center;
+}
+
+/* 이미지 번호 스타일 */
+.num {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  bottom: 25px;
+  left: 20px;
+}
+
+.caption {
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  position: absolute;
+  top: -90px;
+  left: 3px;
+}
+/* 닫기, 이전, 다음 버튼 */
+.close, .prev, .next, .prev2, .next2, .prev3, .next3, .prev4, .prev5, .prev6, .prev7, .prev8, .next4,.next5,.next6, .next7,.next8 {
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    position: fixed; /* position 값을 fixed로 변경하여 화면에 고정 */
+    top: 52%; /* 화면 세로 중앙에 위치 */
+    transform: translateY(-50%); /* 버튼을 세로 방향으로 -50% 이동하여 정확한 중앙 정렬 */
+    z-index: 9999; /* 다른 요소 위에 표시되도록 z-index 값 설정 */
+}
+
+.close {
+    right: 10px;
+    margin-top: -185px; /* 불필요한 margin-top 제거 */
+}
+
+.prev, .prev2, .prev3, .prev4, .prev5, .prev6, .prev7, .prev8 {
+    left: 50%; /* 화면 가로 중앙에 위치 */
+    transform: translateX(-180%); /* 버튼을 가로 방향으로 -50% 이동하여 정확한 중앙 정렬 */
+    margin-top: 55px;
+}
+
+.next,.next2,.next3, .next4,.next5,.next6, .next7,.next8 {
+    right: 50%; /* 화면 가로 중앙에 위치 */
+    transform: translateX(180%); /* 버튼을 가로 방향으로 50% 이동하여 정확한 중앙 정렬 */
+    margin-top: 55px;
+}
+
+.description {
+    display: flex;
+    flex-direction: column; /* 모바일 화면에서 세로로 배치 */
+    margin-top: 10px;
+    padding: 10px 0;
+}
+
+  .brief-description {
+    display: none;
+    flex: 1;
+    margin-right: 50px;
+    border-top: 2px solid black; /* 상단 실선 추가 */
+    border-bottom: 2px solid black; /* 하단 실선 추가 */
+    margin-top: 0px; /* 실선과 텍스트 사이의 간격 조정 */
+    margin-bottom: 0px; /* 실선과 텍스트 사이의 간격 조정 */
+    margin-left:-50px;
+  }
+  .booking-box {
+    display: none;
+    height: 40px;
+    width: 500px;
+    background: white;
+    border-radius: 40px;
+    padding: 10px;
+    border: 1px solid #000000;
+}
+.left, .right {
+    flex: 1;
+}
+
+.left {
+  padding: 0;
+}
+
+.right {
+    display: flex;
+    flex-direction: column; /* 모바일 화면에서 세로로 배치 */
+    padding: 0;
+    margin-top: 2px;
+}
+.mainimage{
+  width: 100%; /* 왼쪽 이미지를 컨테이너 크기에 맞게 조정 */
+  height: auto; /* 비율을 유지하면서 높이 조정 */
+}
+.subimage {
+  width: 100%; /* 각 이미지가 오른쪽 영역의 약 절반을 차지하도록 설정 */
+  margin-bottom: 1px; /* 아래쪽 간격 추가 */
+  height: auto; /* 비율을 유지하면서 높이 조정 */
+}
+.mobile{
+    display: flex;
+}
+
+.desktop {
+  display: none;
+}
+.desktopbtn {
+  display: none;
+}
+
+button {
+  padding: 8px 25px;
+  margin: 3px 5px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+  outline: none;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+.booking-btn {
+  display: block;
+  width: 80%;
+  text-align: center;
+  background-color: #333;
+  color: #fff;
+  padding: 8px 16px; /* 제출 버튼의 패딩을 조정 */
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 10px; /* 위쪽 여백 추가 */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.booking-btn:hover {
+  background-color: #555;
+}
+.mobilebtn {
+  display: block;
+}
+.m-container {
+  display: block;
+  width: 100%;
+  margin: auto;
+  margin-left: 12px;
+}
+.triple img {
+    width: 300px;
+    height: 225px;
+}
+}
+.m-container {
+  display: block;
+}
+    </style>
+<script src="https://kit.fontawesome.com/efdb09ae7c.js" crossorigin="anonymous"></script>
+</head>
+
+<body  style="overflow-x: hidden">
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+
+
+    <div class="headerstyle">
+    <!-- Navbar Start -->
+    <div class="container-fluid nav-bar bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-black p-3 py-lg-0 px-lg-4">
+          <a href="index.html" class="navbar-brand d-flex align-items-center m-0 p-0 d-lg-none">
+            <img src= "img/KakaoTalk_20240315_111242619.png" alt = "Logo" style="float:none; margin-left:20px; margin-top:px; margin-right:auto; margin-bottom: 1px; width:69px; height:72px;">
+        </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav me-auto">
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About</a>
+                    <a href="contact.html" class="nav-item nav-link">오시는길</a>
+                    <a href="helppro.html" class="nav-item nav-link">부분 공사</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">견적문의</a>
+                        <div class="dropdown-menu fade-up m-0">
+                            <a href="booking.html" class="dropdown-item">문의하기</a>
+                            <a href="bookcheck.html" class="dropdown-item">문의확인</a>
+                            <a href="list1.html" class="dropdown-item">공지사항</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    </div>
+    <!-- Potpolio Start -->
+    <main style="padding-top:100px;">
+        <h1>노원 상계동양메이저</h1>
+        <p style="padding-bottom:40px;">블루&화이트의 정석!</p>
+     <div class="m-container">
+        <button onclick="showImage('entryway')">거실/주방</button>
+        <button onclick="showImage('living-room')">침실/욕실</button>
+     </div>
+<section style="padding-top:50px;">
+  <div id="entryway-images" class="image-container">
+    <div class="description">
+      <div class="left">
+    <img class="mainimage" src="portpolio_img/17.상계동양메이저2024/2.jpg" alt="거실 이미지 1"  onclick="openModal();currentSlide(1)"></div>
+      <div class="right">
+    <img class="subimage" src="portpolio_img/17.상계동양메이저2024/4.jpg" alt="거실 이미지 2" onclick="openModal();currentSlide(2)">
+    <img class="subimage" src="portpolio_img/17.상계동양메이저2024/7.jpg" alt="현관 이미지 3" onclick="openModal();currentSlide(3)">
+    <img class="subimage" src="portpolio_img/17.상계동양메이저2024/9.jpg" alt="주방 이미지 4" onclick="openModal();currentSlide(4)">
+    <img class="subimage" src="portpolio_img/17.상계동양메이저2024/10.jpg" alt="주방 이미지 5" onclick="openModal();currentSlide(5)">
+</div>
+    </div>
+  </div>
+  <div id="living-room-images" class="image-container">
+    <div class="description">
+      <div class="left">
+    <img class="mainimage" src="portpolio_img/17.상계동양메이저2024/11.jpg" alt="입구방 이미지 1"  onclick="openModal2();currentSlide2(1)"></div>
+      <div class="right">
+    <img class="subimage" src="portpolio_img/17.상계동양메이저2024/14.jpg" alt="취미방 이미지 2" onclick="openModal2();currentSlide2(2)">
+    <img class="subimage" src="portpolio_img/17.상계동양메이저2024/13.jpg" alt="침실 이미지 3" onclick="openModal2();currentSlide2(3)">
+    <img class="subimage" src="portpolio_img/17.상계동양메이저2024/12.jpg" alt="욕실 이미지 4" onclick="openModal2();currentSlide2(4)">
+    <img class="subimage" src="portpolio_img/17.상계동양메이저2024/15.jpg" alt="욕실 이미지 5" onclick="openModal2();currentSlide2(5)">
+</div>
+  </div>
+  <div id="kitchen-images" class="image-container">
+    <div class="description">
+      <div class="left">
+    <img class="mainimage" src="portpolio_img/17.상계동양메이저2024/거실.jpg/부엌2.jpg" alt="주방 이미지 1" onclick="openModal3();currentSlide3(1)"></div>
+    <div class="right">
+    <img class="subimage" src="portpolio_img/17.상계동양메이저2024/거실.jpg/부엌1.jpg" alt="주방 이미지 2" onclick="openModal3();currentSlide3(2)">
+    <img class="subimage" src="portpolio_img/17.상계동양메이저2024/거실.jpg/부엌.jpg" alt="주방 이미지 3"  onclick="openModal3();currentSlide3(3)">
+    <img class="subimage" src="portpolio_img/17.상계동양메이저2024/거실.jpg/부엌3.jpg" alt="주방 이미지 4" onclick="openModal3();currentSlide3(4)">
+    <img class="subimage" src="portpolio_img/17.상계동양메이저2024/거실.jpg/부엌4.jpg" alt="주방 이미지 5" onclick="openModal3();currentSlide3(5)"></div>
+    </div>
+  </div>
+  <div id="BathA-images" class="image-container">
+    <div class="description">
+      <div class="left">
+    <img class="mainimage" src="portpolio_img/17.상계동양메이저2024/거실.jpg" alt="거실 이미지 1"  onclick="openModal4();currentSlide4(1)"></div>
+      <div class="right">
+    <img class="subimage" src="portpolio_img/17.상계동양메이저2024/거실.jpg/거실1.jpg" alt="거실 이미지 2" onclick="openModal4();currentSlide4(2)">
+    <img class="subimage" src="portpolio_img/17.상계동양메이저2024/거실.jpg/거실2.jpg" alt="거실 이미지 3" onclick="openModal4();currentSlide4(3)">
+    <img class="subimage" src="portpolio_img/17.상계동양메이저2024/거실.jpg/거실3.jpg" alt="거실 이미지 4" onclick="openModal4();currentSlide4(4)">
+    <img class="subimage" src="portpolio_img/17.상계동양메이저2024/거실.jpg/거실2.jpg" alt="거실 이미지 5" onclick="openModal4();currentSlide4(5)"></div>
+    </div>
+  </div>
+</section>
+</main>
+<div class="mobile">
+  <div class="mcontainer">
+    <div class="mbackground">
+      <div class="mrow">
+        <div class="mbox">
+          <p>위치</p>
+          <h6>노원 상계동양메이저</h6>
+        </div>
+        <div class="mbox">
+          <p>타입</p>
+          <h6>아파트</h6>
+        </div>
+      </div>
+      <div class="mrow">
+        <div class="mbox">
+          <p>시공범위</p>
+          <h6>전체</h6>
+        </div>
+        <div class="mbox">
+          <p>시공기간</p>
+          <h6>5주</h6>
+        </div>
+      </div>
+      <div class="mrow">
+        <div class="mbox">
+          <p>시공시기</p>
+          <h6>2024년 4월</h6>
+        </div>
+        <div class="mbox">
+          <p>평당 견적</p>
+          <h6>약 300만원</h6>
+        </div>
+      </div>
+      <div class="mrow">
+        <div class="mbox">
+          <p>Area</p>
+          <h6>32평</h6>
+        </div>
+        <div class="mbox">
+          <p>가족구성</p>
+          <h6>부부</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+<div class="description">
+  <div style="margin-left:50px;" class="detailed-description">
+    <p style="margin-right: 50px;"><span style="font-family:'SUIT', sans-serif;; font-weight: 600;">상세 설명</span><br>
+      <br><span style="font-family: 'SUIT', sans-serif;
+      font-weight: 300;
+      color: black;">
+깔끔한 느낌에 블루로 포인트를 잡은<br>
+노원구에 위치한 동양엔파트입니다!<br>
+<br>
+상계동양메이저, 동양엔파트라고도 불리는 이 아파트는<br>
+B타입으로 특이하게도 2베이가 아닌 3베이 구조입니다.<br>
+<br>
+집은 전체적으로 아이보리, 베이지 이런 색상보다는<br>
+깔끔한 퓨어 화이트 바탕에 블루로 포인트를 주었습니다. <br>
+날개벽을 활용하여 로봇 청소기 맞춤 수납장을 구성하였습니다.<br>
+<br>
+기존 주방이 매우 좁아 공간을 확보하는데 초점을 맞추었습니다.<br> 
+주방 실내에 김치, 일반 냉장고를 넣기 위해 복도공간에 <br> 
+목공을 쳐서 치수를 확보하였으며, <br>
+발코니 터닝도어 쪽은 기존 여닫이와는 달리 슬라이딩 도어로 문을 설계했습니다<br>
+<br>
+위 현장과 유사한 인테리어를 원하시나요?<br>
+오른쪽 견적문의를 통해 보내주세요!</span>
+    </p>
+  </div>
+  <div style="margin-left:60px;" class="brief-description">
+    <div class="left-text">
+    <p style="margin-top:50px; margin-bottom:-40px;">위치&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;타입</p>
+    <h4 style="margin-top:50px; margin-bottom:50px;">노원구&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 아파트</h4></div>
+    <p style="margin-top:50px; margin-bottom:-40px;">시공범위&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;시공기간</p>
+    <h4 style="margin-top:50px; margin-bottom:50px;">전체&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 5주</h4>
+    <p style="margin-top:50px; margin-bottom:-40px;">시공시기&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 평당 견적</p>
+    <h4 style="margin-top:50px; margin-bottom:50px;">2024년 4월&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 300만원 이상</h4>
+    <div class="left-text">
+      <p style="margin-top:50px; margin-bottom:-40px;">Area&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;가족구성</p>
+      <h4 style="margin-top:50px; margin-bottom:50px;">32평&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 부부</h4></div>  
+  </div>
+</div>
+<div class="mobilebtn">
+  <a href="booking.html"><button class="booking-btn" type="button">견적 문의하러 가기</button></a>
+</div>
+<div class="desktopbtn">
+  <a href="booking.html"><button type="button">견적 문의하러 가기</button></a>
+</div>
+<!-- 현관/거실/주방 -->
+<div id="myModal" class="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <span class="prev" onclick="plusSlides(-1)">&#10094;</span>
+  <span class="next" onclick="plusSlides(1)">&#10095;</span>
+  <div class="modal-content">
+    <div class="mySlides">
+      <span class="num">1 / 5</span>
+      <img src="portpolio_img/17.상계동양메이저2024/2.jpg">
+    </div>
+    <div class="mySlides">
+      <span class="num">2 / 5</span>
+      <img src="portpolio_img/17.상계동양메이저2024/4.jpg">
+    </div>
+    <div class="mySlides">
+      <span class="num">3 / 5</span>
+      <img src="portpolio_img/17.상계동양메이저2024/7.jpg">
+    </div>
+    <div class="mySlides">
+      <span class="num">4 / 5</span>
+      <img src="portpolio_img/17.상계동양메이저2024/9.jpg">
+    </div>
+    <div class="mySlides">
+      <span class="num">5 / 5</span>
+      <img src="portpolio_img/17.상계동양메이저2024/10.jpg">
+    </div>
+    <div class="caption">거실/주방(5)</div> <!-- 현관/거실/주방 텍스트 -->
+    <!-- 이미지 슬라이드 -->
+  </div>
+</div>
+<!-- 침실/욕실 -->
+<div id="myModal2" class="modal">
+  <span class="close" onclick="closeModal2()">&times;</span>
+  <span class="prev2" onclick="plusSlides2(-1)">&#10094;</span>
+  <span class="next2" onclick="plusSlides2(1)">&#10095;</span>
+  <div class="modal-content">
+    <div class="mySlides2">
+      <span class="num">1 / 5</span>
+      <img src="portpolio_img/17.상계동양메이저2024/11.jpg">
+    </div>
+    <div class="mySlides2">
+      <span class="num">2 / 5</span>
+      <img src="portpolio_img/17.상계동양메이저2024/14.jpg">
+    </div>
+    <div class="mySlides2">
+      <span class="num">3 / 5</span>
+      <img src="portpolio_img/17.상계동양메이저2024/13.jpg">
+    </div>
+    <div class="mySlides2">
+      <span class="num">4 / 5</span>
+      <img src="portpolio_img/17.상계동양메이저2024/12.jpg">
+    </div>
+    <div class="mySlides2">
+      <span class="num">5 / 5</span>
+      <img src="portpolio_img/17.상계동양메이저2024/15.jpg">
+    </div>
+    <div class="caption">침실/욕실(5)</div> <!-- 침실/욕실 텍스트 -->
+  </div>
+</div>
+<!-- 주방 -->
+<div id="myModal3" class="modal">
+  <span class="close" onclick="closeModal3()">&times;</span>
+  <span class="prev3" onclick="plusSlides3(-1)">&#10094;</span>
+  <span class="next3" onclick="plusSlides3(1)">&#10095;</span>
+  <div class="modal-content">
+    <div class="mySlides3">
+      <span class="num">1 / 5</span>
+      <img src="portpolio_img/17.상계동양메이저2024/거실.jpg/안방.jpg">
+    </div>
+    <div class="mySlides3">
+      <span class="num">2 / 5</span>
+      <img src="portpolio_img/17.상계동양메이저2024/거실.jpg/안방2.jpg">
+    </div>
+    <div class="mySlides3">
+      <span class="num">3 / 5</span>
+      <img src="portpolio_img/17.상계동양메이저2024/거실.jpg/욕실.jpg">
+    </div>
+    <div class="mySlides3">
+      <span class="num">4 / 5</span>
+      <img src="portpolio_img/17.상계동양메이저2024/거실.jpg/욕실1.jpg">
+    </div>
+    <div class="mySlides3">
+      <span class="num">5 / 5</span>
+      <img src="portpolio_img/17.상계동양메이저2024/거실.jpg/40jpg">
+    </div>
+    <div class="caption">주방(5)</div> <!-- 주방 텍스트 -->
+  </div>
+</div>
+<!-- 욕실1 -->
+<div id="myModal4" class="modal">
+  <span class="close" onclick="closeModal4()">&times;</span>
+  <span class="prev4" onclick="plusSlides4(-1)">&#10094;</span>
+  <span class="next4" onclick="plusSlides4(1)">&#10095;</span>
+  <div class="modal-content">
+    <div class="mySlides4">
+      <span class="num">1 / 5</span>
+      <img src="portpolio_img/17.상계동양메이저2024/거실.jpg/욕실A.jpg">
+    </div>
+    <div class="mySlides4">
+      <span class="num">2 / 5</span>
+      <img src="portpolio_img/17.상계동양메이저2024/거실.jpg/욕실A1.jpg">
+    </div>
+    <div class="mySlides4">
+      <span class="num">3 / 5</span>
+      <img src="portpolio_img/17.상계동양메이저2024/거실.jpg/욕실A.jpg">
+    </div>
+    <div class="mySlides4">
+      <span class="num">4 / 5</span>
+      <img src="portpolio_img/17.상계동양메이저2024/거실.jpg/욕실A3.jpg">
+    </div>
+    <div class="mySlides4">
+      <span class="num">5 / 5</span>
+      <img src="portpolio_img/17.상계동양메이저2024/거실.jpg/욕실A4.jpg">
+    </div>
+    <div class="caption">욕실(5)</div> <!-- 욕실1 텍스트 -->
+  </div>
+</div>
+<!-- 욕실2 -->
+<div id="myModal5" class="modal">
+  <span class="close" onclick="closeModal5()">&times;</span>
+  <span class="prev5" onclick="plusSlides5(-1)">&#10094;</span>
+  <span class="next5" onclick="plusSlides5(1)">&#10095;</span>
+  <div class="modal-content">
+    <div class="mySlides5">
+      <span class="num">1 / 5</span>
+      <img src="portpolio_img/17.상계동양메이저2024/거실.jpg/욕실B.jpg">
+    </div>
+    <div class="mySlides5">
+      <span class="num">2 / 5</span>
+      <img src="portpolio_img/17.상계동양메이저2024/거실.jpg/욕실1.jpg">
+    </div>
+    <div class="mySlides5">
+      <span class="num">3 / 5</span>
+      <img src="portpolio_img/17.상계동양메이저2024/거실.jpg/욕실.jpg">
+    </div>
+    <div class="mySlides5">
+      <span class="num">4 / 5</span>
+      <img src="portpolio_img/17.상계동양메이저2024/거실.jpg/욕실3.jpg">
+    </div>
+    <div class="mySlides5">
+      <span class="num">5 / 5</span>
+      <img src="portpolio_img/17.상계동양메이저2024/거실.jpg/욕실2.jpg">
+    </div>
+    <div class="caption">주방(4)</div> <!-- 욕실2 텍스트 -->
+  </div>
+</div>
+<!-- 침실1 -->
+<div id="myModal6" class="modal">
+  <span class="close" onclick="closeModal6()">&times;</span>
+  <span class="prev6" onclick="plusSlides6(-1)">&#10094;</span>
+  <span class="next6" onclick="plusSlides6(1)">&#10095;</span>
+  <div class="modal-content">
+    <div class="mySlides6">
+      <span class="num">1 / 5</span>
+      <img src="portpolio_img/17.상계동양메이저2024/거실.jpg/부엌2.jpg">
+    </div>
+    <div class="mySlides6">
+      <span class="num">2 / 5</span>
+      <img src="portpolio_img/17.상계동양메이저2024/거실.jpg/부엌1.jpg">
+    </div>
+    <div class="mySlides6">
+      <span class="num">3 / 5</span>
+      <img src="portpolio_img/17.상계동양메이저2024/거실.jpg/부엌.jpg">
+    </div>
+    <div class="mySlides6">
+      <span class="num">4 / 5</span>
+      <img src="portpolio_img/17.상계동양메이저2024/거실.jpg/부엌3.jpg">
+    </div>
+    <div class="caption">주방(4)</div> <!-- 침실1 텍스트 -->
+  </div>
+</div>
+<!-- 침실2 -->
+<div id="myModal7" class="modal">
+  <span class="close" onclick="closeModal7()">&times;</span>
+  <span class="prev7" onclick="plusSlides7(-1)">&#10094;</span>
+  <span class="next7" onclick="plusSlides7(1)">&#10095;</span>
+  <div class="modal-content">
+    <div class="mySlides7">
+      <span class="num">1 / 5</span>
+      <img src="portpolio_img/17.상계동양메이저2024/거실.jpg/부엌2.jpg">
+    </div>
+    <div class="mySlides7">
+      <span class="num">2 / 5</span>
+      <img src="portpolio_img/17.상계동양메이저2024/거실.jpg/부엌1.jpg">
+    </div>
+    <div class="mySlides7">
+      <span class="num">3 / 5</span>
+      <img src="portpolio_img/17.상계동양메이저2024/거실.jpg/부엌.jpg">
+    </div>
+    <div class="mySlides7">
+      <span class="num">4 / 5</span>
+      <img src="portpolio_img/17.상계동양메이저2024/거실.jpg/부엌3.jpg">
+    </div>
+    <div class="caption">주방(4)</div> <!-- 주방 텍스트 -->
+  </div>
+</div>
+<!-- 침실3 -->
+<div id="myModal8" class="modal">
+  <span class="close" onclick="closeModal8()">&times;</span>
+  <span class="prev8" onclick="plusSlides8(-1)">&#10094;</span>
+  <span class="next8" onclick="plusSlides8(1)">&#10095;</span>
+  <div class="modal-content">
+    <div class="mySlides8">
+      <span class="num">1 / 5</span>
+      <img src="portpolio_img/17.상계동양메이저2024/거실.jpg/부엌2.jpg">
+    </div>
+    <div class="mySlides8">
+      <span class="num">2 / 5</span>
+      <img src="portpolio_img/17.상계동양메이저2024/거실.jpg/부엌1.jpg">
+    </div>
+    <div class="mySlides8">
+      <span class="num">3 / 5</span>
+      <img src="portpolio_img/17.상계동양메이저2024/거실.jpg/부엌.jpg">
+    </div>
+    <div class="mySlides8">
+      <span class="num">4 / 5</span>
+      <img src="portpolio_img/17.상계동양메이저2024/거실.jpg/부엌3.jpg">
+    </div>
+    <div class="caption">주방(4)</div> <!-- 침실3 텍스트 -->
+  </div>
+</div>
+
+  <script>
+    function showImage(room) {
+      var images = document.getElementsByClassName('image-container');
+      for (var i = 0; i < images.length; i++) {
+        images[i].classList.remove('active');
+      }
+      document.getElementById(room + '-images').classList.add('active');
+    }
+    window.onload = function() {
+    document.getElementById('entryway-images').classList.add('active');
+  };
+/*이미지 슬라이드 js*/
+let slideIndex = 1;
+
+function openModal() {
+  document.getElementById('myModal').style.display = "block";
+  document.body.style.overflowY = "hidden"; // 스크롤바 숨기기
+}
+
+function closeModal() {
+  document.getElementById('myModal').style.display = "none";
+  document.body.style.overflowY = "auto"; // 스크롤바 다시 보이기
+}
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let slides = document.getElementsByClassName("mySlides");
+  if (n < 1) {
+    slideIndex = 1;
+  } else if (n > slides.length) {
+    slideIndex = slides.length;
+  } else {
+    slideIndex = n;
+  }
+
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slides[slideIndex - 1].style.display = "block";
+
+  // Disable prev and next buttons when on first or last slide
+  let prevButton = document.querySelector(".prev");
+  let nextButton = document.querySelector(".next");
+  if (slideIndex === 1) {
+    prevButton.style.color = "grey";
+    prevButton.style.cursor = "default";
+  } else {
+    prevButton.style.color = "white";
+    prevButton.style.cursor = "pointer";
+  }
+  if (slideIndex === slides.length) {
+    nextButton.style.color = "grey";
+    nextButton.style.cursor = "default";
+  } else {
+    nextButton.style.color = "white";
+    nextButton.style.cursor = "pointer";
+  }
+}
+showSlides2(slideIndex);
+/* 2번째 모달*/
+let slideIndex2 = 1;
+
+function openModal2() {
+  document.getElementById('myModal2').style.display = "block";
+  document.body.style.overflowY = "hidden"; // 스크롤바 숨기기
+}
+
+function closeModal2() {
+  document.getElementById('myModal2').style.display = "none";
+  document.body.style.overflowY = "auto"; // 스크롤바 다시 보이기
+}
+
+function plusSlides2(n) {
+  showSlides2(slideIndex += n);
+}
+
+function currentSlide2(n) {
+  showSlides2(slideIndex = n);
+}
+
+function showSlides2(n) {
+  let slides = document.getElementsByClassName("mySlides2");
+  if (n < 1) {
+    slideIndex = 1;
+  } else if (n > slides.length) {
+    slideIndex = slides.length;
+  } else {
+    slideIndex = n;
+  }
+
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slides[slideIndex - 1].style.display = "block";
+
+  let prevButton = document.querySelector(".prev2");
+  let nextButton = document.querySelector(".next2");
+  if (slideIndex === 1) {
+    prevButton.style.color = "grey";
+    prevButton.style.cursor = "default";
+  } else {
+    prevButton.style.color = "white";
+    prevButton.style.cursor = "pointer";
+  }
+  if (slideIndex === slides.length) {
+    nextButton.style.color = "grey";
+    nextButton.style.cursor = "default";
+  } else {
+    nextButton.style.color = "white";
+    nextButton.style.cursor = "pointer";
+  }
+}
+showSlides2(slideIndex);
+
+/* 3번째 모달*/
+let slideIndex3 = 1;
+
+function openModal3() {
+  document.getElementById('myModal3').style.display = "block";
+  document.body.style.overflowY = "hidden"; // 스크롤바 숨기기
+}
+
+function closeModal3() {
+  document.getElementById('myModal3').style.display = "none";
+  document.body.style.overflowY = "auto"; // 스크롤바 다시 보이기
+}
+
+function plusSlides3(n) {
+  showSlides3(slideIndex += n);
+}
+
+function currentSlide3(n) {
+  showSlides3(slideIndex = n);
+}
+
+function showSlides3(n) {
+  let slides = document.getElementsByClassName("mySlides3");
+  if (n < 1) {
+    slideIndex = 1;
+  } else if (n > slides.length) {
+    slideIndex = slides.length;
+  } else {
+    slideIndex = n;
+  }
+
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slides[slideIndex - 1].style.display = "block";
+
+  let prevButton = document.querySelector(".prev3");
+  let nextButton = document.querySelector(".next3");
+  if (slideIndex === 1) {
+    prevButton.style.color = "grey";
+    prevButton.style.cursor = "default";
+  } else {
+    prevButton.style.color = "white";
+    prevButton.style.cursor = "pointer";
+  }
+  if (slideIndex === slides.length) {
+    nextButton.style.color = "grey";
+    nextButton.style.cursor = "default";
+  } else {
+    nextButton.style.color = "white";
+    nextButton.style.cursor = "pointer";
+  }
+}
+showSlides3(slideIndex);
+
+/* 4번째 모달 */
+let slideIndex4 = 1;
+
+function openModal4() {
+  document.getElementById('myModal4').style.display = "block";
+  document.body.style.overflowY = "hidden";
+}
+
+function closeModal4() {
+  document.getElementById('myModal4').style.display = "none";
+  document.body.style.overflowY = "auto";
+}
+
+function plusSlides4(n) {
+  showSlides4(slideIndex += n);
+}
+
+function currentSlide4(n) {
+  showSlides4(slideIndex = n);
+}
+
+function showSlides4(n) {
+  let slides = document.getElementsByClassName("mySlides4");
+  if (n < 1) {
+    slideIndex = 1;
+  } else if (n > slides.length) {
+    slideIndex = slides.length;
+  } else {
+    slideIndex = n;
+  }
+
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slides[slideIndex - 1].style.display = "block";
+  let prevButton = document.querySelector(".prev4");
+  let nextButton = document.querySelector(".next4");
+  if (slideIndex === 1) {
+    prevButton.style.color = "grey";
+    prevButton.style.cursor = "default";
+  } else {
+    prevButton.style.color = "white";
+    prevButton.style.cursor = "pointer";
+  }
+  if (slideIndex === slides.length) {
+    nextButton.style.color = "grey";
+    nextButton.style.cursor = "default";
+  } else {
+    nextButton.style.color = "white";
+    nextButton.style.cursor = "pointer";
+  }
+}
+showSlides4(slideIndex);
+
+/* 5번째 모달 */
+let slideIndex5 = 1;
+
+function openModal5() {
+  document.getElementById('myModal5').style.display = "block";
+  document.body.style.overflowY = "hidden";
+}
+
+function closeModal5() {
+  document.getElementById('myModal5').style.display = "none";
+  document.body.style.overflowY = "auto";
+}
+
+function plusSlides5(n) {
+  showSlides5(slideIndex += n);
+}
+
+function currentSlide5(n) {
+  showSlides5(slideIndex = n);
+}
+
+function showSlides5(n) {
+  let slides = document.getElementsByClassName("mySlides5");
+  if (n < 1) {
+    slideIndex = 1;
+  } else if (n > slides.length) {
+    slideIndex = slides.length;
+  } else {
+    slideIndex = n;
+  }
+
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slides[slideIndex - 1].style.display = "block";
+  let prevButton = document.querySelector(".prev5");
+  let nextButton = document.querySelector(".next5");
+
+  if (slideIndex === 1) {
+    prevButton.style.color = "grey";
+    prevButton.style.cursor = "default";
+  } else {
+    prevButton.style.color = "white";
+    prevButton.style.cursor = "pointer";
+  }
+  if (slideIndex === slides.length) {
+    nextButton.style.color = "grey";
+    nextButton.style.cursor = "default";
+  } else {
+    nextButton.style.color = "white";
+    nextButton.style.cursor = "pointer";
+  }
+}
+showSlides5(slideIndex);
+
+/* 6번째 모달 */
+let slideIndex6 = 1;
+
+function openModal6() {
+  document.getElementById('myModal6').style.display = "block";
+  document.body.style.overflowY = "hidden";
+}
+
+function closeModal6() {
+  document.getElementById('myModal6').style.display = "none";
+  document.body.style.overflowY = "auto";
+}
+
+function plusSlides6(n) {
+  showSlides6(slideIndex6 += n);
+}
+
+function currentSlide6(n) {
+  showSlides6(slideIndex6 = n);
+}
+
+function showSlides6(n) {
+  let slides = document.getElementsByClassName("mySlides6");
+  if (n < 1) {
+    slideIndex6 = 1;
+  } else if (n > slides.length) {
+    slideIndex6 = slides.length;
+  } else {
+    slideIndex6 = n;
+  }
+
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slides[slideIndex6 - 1].style.display = "block";
+  let prevButton = document.querySelector(".prev6");
+  let nextButton = document.querySelector(".next6");
+
+  if (slideIndex6 === 1) {
+    prevButton.style.color = "grey";
+    prevButton.style.cursor = "default";
+  } else {
+    prevButton.style.color = "white";
+    prevButton.style.cursor = "pointer";
+  }
+  if (slideIndex6 === slides.length) {
+    nextButton.style.color = "grey";
+    nextButton.style.cursor = "default";
+  } else {
+    nextButton.style.color = "white";
+    nextButton.style.cursor = "pointer";
+  }
+}
+showSlides6(slideIndex6);
+
+/* 7번째 모달 */
+let slideIndex7 = 1;
+
+function openModal7() {
+  document.getElementById('myModal7').style.display = "block";
+  document.body.style.overflowY = "hidden";
+}
+
+function closeModal7() {
+  document.getElementById('myModal7').style.display = "none";
+  document.body.style.overflowY = "auto";
+}
+
+function plusSlides7(n) {
+  showSlides7(slideIndex7 += n);
+}
+
+function currentSlide7(n) {
+  showSlides7(slideIndex7 = n);
+}
+
+function showSlides7(n) {
+  let slides = document.getElementsByClassName("mySlides7");
+  if (n < 1) {
+    slideIndex7 = 1;
+  } else if (n > slides.length) {
+    slideIndex7 = slides.length;
+  } else {
+    slideIndex7 = n;
+  }
+
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slides[slideIndex7 - 1].style.display = "block";
+  let prevButton = document.querySelector(".prev7");
+  let nextButton = document.querySelector(".next7");
+
+  if (slideIndex7 === 1) {
+    prevButton.style.color = "grey";
+    prevButton.style.cursor = "default";
+  } else {
+    prevButton.style.color = "white";
+    prevButton.style.cursor = "pointer";
+  }
+  if (slideIndex7 === slides.length) {
+    nextButton.style.color = "grey";
+    nextButton.style.cursor = "default";
+  } else {
+    nextButton.style.color = "white";
+    nextButton.style.cursor = "pointer";
+  }
+}
+showSlides7(slideIndex7);
+
+/* 8번째 모달 */
+let slideIndex8 = 1;
+
+function openModal8() {
+  document.getElementById('myModal8').style.display = "block";
+  document.body.style.overflowY = "hidden";
+}
+
+function closeModal8() {
+  document.getElementById('myModal8').style.display = "none";
+  document.body.style.overflowY = "auto";
+}
+
+function plusSlides8(n) {
+  showSlides8(slideIndex8 += n);
+}
+
+function currentSlide8(n) {
+  showSlides8(slideIndex8 = n);
+}
+
+function showSlides8(n) {
+  let slides = document.getElementsByClassName("mySlides8");
+  if (n < 1) {
+    slideIndex8 = 1;
+  } else if (n > slides.length) {
+    slideIndex8 = slides.length;
+  } else {
+    slideIndex8 = n;
+  }
+
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slides[slideIndex8 - 1].style.display = "block";
+  let prevButton = document.querySelector(".prev8");
+  let nextButton = document.querySelector(".next8");
+
+  if (slideIndex8 === 1) {
+    prevButton.style.color = "grey";
+    prevButton.style.cursor = "default";
+  } else {
+    prevButton.style.color = "white";
+    prevButton.style.cursor = "pointer";
+  }
+  if (slideIndex8 === slides.length) {
+    nextButton.style.color = "grey";
+    nextButton.style.cursor = "default";
+  } else {
+    nextButton.style.color = "white";
+    nextButton.style.cursor = "pointer";
+  }extButton.style.color = "white";
+}
+showSlides8(slideIndex8);
+
+  </script>
+       <!-- Potpolio End -->
+
+
+<!-- Footer Start -->
+<div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+  <div class="container py-5">
+      <div class="row g-5">
+          <div class="col-lg-3 col-md-6">
+              <h4 class="text-light mb-4">Address</h4>
+              <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>서울 중랑구 봉화산로53길 22</p>
+              <p class="mb-2"><i class="fa fa-envelope me-3"></i>ha1222@naver.com</p>
+              <div class="d-flex pt-2">
+                  <a class="btn btn-outline-light btn-social" href="https://blog.naver.com/ha1222" target='_blank'><i class="fa-solid fa-blog"></i></a>
+                  <a class="btn btn-outline-light btn-social" href="https://www.youtube.com/@inssahaprotv" target='_blank'><i class="fab fa-youtube"></i></a>
+                  <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/inssahapro/" target='_blank'><i class="fab fa-instagram"></i></a>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+              <h4 class="text-light mb-4">고객센터</h4>
+              <p class="mb-2">영업시간 | 08.00 AM - 6.00 PM</p>
+              <p class="mb-2">전화번호 | 02-932-1110</p>
+          </div>
+          <div class="col-lg-3 col-md-6">
+              <h4 class="text-light mb-4">서비스</h4>
+              <a class="btn btn-link" href="https://blog.naver.com/ha1222" target='_blank'>인테리어 팁</a>
+              <a class="btn btn-link" href="#">후기 작성</a>
+          </div>
+          <div class="col-lg-3 col-md-6">
+              <h4 class="text-light mb-4">공지</h4>
+              <a class="btn btn-link" href="list1.html">공지사항</a>
+              <a class="btn btn-link" href="FAQ.html">FAQ</a>
+              <a class="btn btn-link" href="booking.html">문의하기</a>
+          </div>
+      </div>
+  </div>
+  <div class="container">
+      <div class="copyright">
+          <div class="row">
+              <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                  &copy; <a class="border-bottom" href="#">Pro Design
+              </div>
+              <div class="col-md-7 text-center text-md-end">
+                  <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                  Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+              </div>
+          </div>
+      </div>
+  </div>
+ </div>
+ <!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-0 back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

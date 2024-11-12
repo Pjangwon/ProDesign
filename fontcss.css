@@ -1,0 +1,56 @@
+   @font-face {
+    font-family: 'SUIT';
+    font-style: normal;
+    font-weight: 200;
+    src: url(font/SUIT-Thin.otf) format('opentype');
+    src: url(font/SUIT-Thin.otf) format('opentype'),
+         url(font/SUIT-Thin.ttf) format('truetype');
+  }
+  @font-face {
+    font-family: 'SUIT';
+    font-style: normal;
+    font-weight: 300;
+    src: url(font/SUIT-Light.otf) format('opentype');
+    src: url(font/SUIT-Light.otf) format('opentype'),
+         url(font/SUIT-Light.ttf) format('truetype');
+  }
+  @font-face {
+    font-family: 'SUIT';
+    font-style: normal;
+    font-weight: 400;
+    src: url(font/SUIT-Regular.otf) format('opentype');
+    src: url(font/SUIT-Regular.otf) format('opentype'),
+         url(font/SUIT-Regular.ttf) format('truetype');
+  }
+  @font-face {
+    font-family: 'SUIT';
+    font-style: normal;
+    font-weight: 500;
+    src: url(font/SUIT-Medium.otf) format('opentype');
+    src: url(font/SUIT-Medium.otf) format('opentype'),
+         url(font/SUIT-Medium.ttf) format('truetype');
+  }
+  @font-face {
+    font-family: 'SUIT';
+    font-style: normal;
+    font-weight: 600;
+    src: url(font/SUIT-SemiBold.otf) format('opentype');
+    src: url(font/SUIT-SemiBold.otf) format('opentype'),
+         url(font/SUIT-SemiBold.ttf) format('truetype');
+  }
+  @font-face {
+    font-family: 'SUIT';
+    font-style: normal;
+    font-weight: 700;
+    src: url(font/SUIT-Bold.otf) format('opentype');
+    src: url(font/SUIT-Bold.otf) format('opentype'),
+         url(font/SUIT-Bold.ttf) format('truetype');
+  }
+  @font-face {
+    font-family: 'SUIT';
+    font-style: normal;
+    font-weight: 900;
+    src: url(font/SUIT-ExtraBold.otf) format('opentype');
+    src: url(font/SUIT-ExtraBold.otf) format('opentype'),
+         url(font/SUIT-ExtraBold.ttf) format('truetype');
+  }

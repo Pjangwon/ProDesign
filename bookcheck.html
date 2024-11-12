@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>프로디자인</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/KakaoTalk_20240315_111242619.png" rel="shortcut icon" type="image/x-icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="fontcss.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/efdb09ae7c.js" crossorigin="anonymous"></script>
+    <style>
+        .container1 {
+            width: 30%;
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  color: #333;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.font {
+    font-size: 18px;
+    color: red;
+}
+
+.left {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.left img {
+  max-width: 100%;
+  height: auto;
+}
+
+.right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* 오른쪽 컨텐츠를 위로 정렬 */
+  align-items: stretch; /* 오른쪽 컨텐츠를 수직으로 늘림 */
+}
+
+.right h2 {
+  margin-bottom: 20px;
+}
+
+.right label {
+  margin-bottom: 5px;
+  color: black;
+  flex: 0 0 100%; /* 라벨은 30%의 넓이를 차지 */
+  margin-right: 5px; /* 오른쪽 여백 추가 */
+  text-align: left; /* 텍스트를 오른쪽 정렬 */
+  margin-left: 0px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.right input[type="text"],
+.right input[type="tel"],
+.right input[type="month"],
+.right input[type="number"],
+.right select,
+.right textarea {
+  flex: 0 0 33%; /* 입력 필드가 가능한 넓이를 차지하도록 함 */
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  border-radius: 0;
+  background-color: transparent;
+  margin-bottom: 40px;
+  transition: border-color 0.3s;
+  font-size: 14px;
+  margin-right: 15px; /* 우측 여백 추가 */
+  margin-left: 0px;
+}
+
+label[for="size-type"],
+label[for="family"] {
+    margin-top: 4px;
+}
+
+label[for="content"],
+label[for="request"] {
+    margin-top: 6px;
+}
+
+.right input[type="text"]:focus,
+.right input[type="tel"]:focus,
+.right input[type="email"]:focus,
+.right select:focus,
+.right textarea:focus {
+  outline: none;
+  border-color: #555;
+}
+
+.right input[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  flex: 0 0 20%; /* 제출 버튼을 한 줄에 표시 */
+  margin-top: 10px; /* 위쪽 여백 추가 */
+  margin-left: auto;
+  height: 50px;
+}
+
+.right input[type="submit"]:hover {
+  background-color: #555;
+}
+
+.right input[type="submit"]:disabled {
+  background-color: #ccc;
+  cursor: auto;
+}
+
+.right input[type="submit"]:not([disabled]) {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.right input[type="submit"]:not([disabled]):hover {
+  background-color: #555;
+}
+
+.right input[type="submit"].active {
+  background-color: #000;
+  color: #fff;
+}
+@media (max-width: 992px) {
+/* 모바일 */
+  .left{
+    margin-bottom: 30px;    
+  }
+
+  .right {
+    align-items: flex-start; /* 오른쪽 컨텐츠를 위로 정렬 */
+  }
+
+  .container1 {
+    width: 90%;
+  max-width: 600px;
+  margin: 5px auto;
+  padding: 10px;
+  background-color: #fff;
+  color: #333;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: block;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+  .right label {
+    text-align: left; /* 라벨 텍스트를 왼쪽 정렬 */
+    margin-bottom: 3px; /* 라벨 간격을 줄임 */
+    font-size: 12px; /* 라벨 폰트 사이즈를 줄임 */
+    width: 90%;
+    flex: 0 0 90%;
+    margin-left: 0px;
+  }
+
+  .right input[type="text"],
+  .right input[type="tel"],
+  .right input[type="month"],
+  .right input[type="number"],
+  .right select,
+  .right textarea {
+    margin-right: 0; /* 입력 필드 오른쪽 여백 제거 */
+    margin-bottom: 10px; /* 입력 필드 아래 여백 추가 */
+    font-size: 12px; /* 입력 필드 폰트 사이즈를 줄임 */
+    width: 100%;
+    flex: 0 0 90%;
+    margin-left: 0;
+  }
+
+  .right input[type="submit"] {
+    padding: 8px 16px; /* 제출 버튼의 패딩을 조정 */
+    flex: 0 0 100%;
+  }
+
+  .mobilep {
+    margin-bottom: 30px;
+  }
+  .mobileimg {
+    display: block;
+  }
+
+  .desktopimg {
+    display: none;
+  }
+}
+    </style>
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+    <div class="headerstyle">
+<!-- Topbar Start -->
+<div class="container-fluid bg-light d-none d-lg-block">
+    <div class="row align-items-center top-bar">
+        <div class="col-lg-3 col-md-12 text-center text-lg-start">
+            <a href="index.html" class="navbar-brand m-0 p-0">
+                <img src="img/KakaoTalk_20240315_111242619.png" alt="Logo" style="float:none; margin-left:20px; margin-top:3px; margin-right:auto; margin-bottom: 1px; width:69px; height:72px;">
+            </a>
+        </div>
+        <div class="col-lg-9 col-md-12 text-end">
+            <div class="h-100 d-inline-flex align-items-center me-4">
+                <i class="fa fa-map-marker-alt text-black me-2"></i>
+                <p class="m-0">서울 중랑구 봉화산로53길 31 프로디자인 사옥</p>
+            </div>
+            <div class="h-100 d-inline-flex align-items-center me-4">
+                <i class="far fa-envelope-open text-black me-2"></i>
+                <p class="m-0">ha1231@naver.com</p>
+            </div>
+            <div class="h-100 d-inline-flex align-items-center">
+                <a class="btn btn-sm-square bg-white text-primary me-1" href="https://www.youtube.com/@inssahaprotv" target='_blank'><i class="fab fa-youtube"></i></a>
+                <a class="btn btn-sm-square bg-white text-primary me-1" href="https://blog.naver.com/ha1231" target='_blank'><i class="fa-solid fa-blog"></i></a>
+                <a class="btn btn-sm-square bg-white text-primary me-0" href="https://www.instagram.com/inssahapro/" target='_blank'><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid nav-bar bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-black p-3 py-lg-0 px-lg-4">
+            <a href="index.html" class="navbar-brand d-flex align-items-center m-0 p-0 d-lg-none">
+                <img src= "img/KakaoTalk_20240315_111242619.png" alt = "Logo" style="float:none; margin-left:20px; margin-top:px; margin-right:auto; margin-bottom: 1px; width:69px; height:72px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav me-auto">
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About</a>
+                    <a href="contact.html" class="nav-item nav-link">오시는길</a>
+                    <a href="helppro.html" class="nav-item nav-link">부분 공사</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">견적문의</a>
+                        <div class="dropdown-menu fade-up m-0">
+                            <a href="booking.html" class="dropdown-item">문의하기</a>
+                            <a href="bookcheck.html" class="dropdown-item">문의확인</a>
+                            <a href="list1.html" class="dropdown-item">공지사항</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    </div>
+    <!-- Navbar End -->
+
+
+
+    <!-- Bookcheck Start -->
+<div class="bodymaden">
+    <div class="container1">
+        <div class="right">
+        <h4>문의 확인</h4>
+          <p class="pstyle" style="padding-top: 10px;">문의가 늦을 경우 아래에 입력해주시면 빠르게 확인하고 연락해드립니다.</p>
+          <form id="estimateForm" action="https://formsubmit.co/prodesignsending@gmail.com" method="post">
+            <label for="name">이름 <a class="font">*</a></label>
+            <input type="text" id="name" name="name" placeholder="입력해주세요" required>
+            
+            <label for="phone">연락처 <a class="font">*</a></label>
+            <input type="tel" id="phone" name="phone" placeholder="입력해주세요" required>
+
+            <label for="동의서"> <p><a href="service.html" style="color: #000;">개인정보처리방침에 동의합니다.</a></p></label>
+
+            <input type="submit" value="확인하기" disabled>
+          </form>
+        </div>
+    </div>
+</div>
+       <!-- Bookcheck End -->
+
+<script>
+            document.addEventListener('DOMContentLoaded', function() {
+          const form = document.getElementById('estimateForm');
+          const submitButton = form.querySelector('input[type="submit"]');
+          
+          form.addEventListener('input', function() {
+            const inputs = form.querySelectorAll('input, textarea, select');
+            let allFilled = true;
+            inputs.forEach(function(input) {
+              if (input.required && !input.value.trim()) {
+                allFilled = false;
+              }
+            });
+            
+            if (allFilled) {
+              submitButton.classList.add('active');
+              submitButton.removeAttribute('disabled');
+            } else {
+              submitButton.classList.remove('active');
+              submitButton.setAttribute('disabled', 'disabled');
+            }
+          });
+        });
+</script>
+ 
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-0 back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
